@@ -1,0 +1,26 @@
+#Word Guesser Sheldon
+
+import random
+
+word_list = ["MACADAMIA","CAMERA","MACBOOK"]
+
+
+word = random.choice(word_list)
+print "The word has " + str(len(word)) + " letters."
+
+starred_word = "*"*len(word)
+print starred_word
+
+
+while "*" in starred_word:
+    guess = input("Guess a letter or the entire word: ")
+    guess = guess.upper()
+    if guess in word:
+        for i in range(0,len(word)):
+            if word[i] == guess:
+                starred_word = starred_word[:i] + guess + starred_word[i+1:]
+    if guess == word:
+        starred_word = word
+    print starred_word
+        
+print "Correct!"
