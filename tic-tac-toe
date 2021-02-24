@@ -1,0 +1,55 @@
+#Tic Tac Toe
+turn_num = 0
+board_row = ["1","2","3","4","5","6","7","8","9"]
+
+def user_1(board_row,turn_num):
+
+    if turn_num%2 == 0:
+        for i in range(len(board_row)): 
+                if i == user_choice_1:
+                    if board_row[i] == "X" or board_row[i] =="O":
+                        print "There is already a letter there"
+                    if board_row[i] != "X" and board_row[i] !="O":
+                        board_row[i-1] = "X"  
+                    
+               
+    if turn_num%2 != 0:
+        for i in range(len(board_row)): 
+                if i == user_choice_1:
+                    if board_row[i] == "X" or board_row[i] =="O":
+                        print "There is already a letter there"
+                    if board_row[i] != "X" and board_row[i] !="O":
+                        board_row[i-1] = "O"  
+               
+
+                        
+def display(board_row):    
+    
+    print board_row[0:3]
+    print board_row[3:6]
+    print board_row[6:9]
+        
+        
+
+user_choice_letter = input("Do you want to be X or O : ")
+if user_choice_letter.upper() == "X":
+    turn_num = 0
+if user_choice_letter.upper() == "O":
+    turn_num = 1
+    
+while turn_num>=0 and turn_num<=9:
+    
+    if turn_num %2 == 0:
+        user_choice_1 = int(input("What number would you like to X : "))
+        user_1(board_row,turn_num)
+        display(board_row)
+        turn_num = turn_num + 1
+        print " "
+    elif turn_num %2 != 0:
+        user_choice_1 = int(input("What number would you like to O : "))
+        user_1(board_row,turn_num)
+        display(board_row)
+        turn_num = turn_num + 1
+        print " "
+        
+print "END GAME"
