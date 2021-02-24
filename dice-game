@@ -1,0 +1,57 @@
+#Dice Game Sheldon
+import random
+
+player_1_dice = 0
+player_2_dice = 0
+player_1_rolling = True
+player_2_rolling = False
+player_1_win = False
+player_2_win = False
+
+
+while player_1_dice<21 and player_1_rolling==True:
+    roll_question_1 = input("Player 1, would you like to roll?: ")
+    if roll_question_1 == "No":
+        player_1_rolling = False
+        player_2_rolling = True
+    if roll_question_1 == "Yes":
+        player_1_dice = player_1_dice + random.randint(1,6)
+        print "Your total is now: " + str(player_1_dice)
+        if player_1_dice==21:
+            print "Player one wins, now on to Player 2"
+            player_1_rolling = False
+            player_2_rolling = True
+        if player_1_dice>21:
+            print "Player one loses, now on to Player 2"
+            player_1_rolling = False
+            player_2_rolling = True
+        
+
+while player_2_dice<21 and player_2_rolling==True:
+    roll_question_2 = input("Player 2, would you like to roll?: ")
+    if roll_question_2 == "No":
+        player_2_rolling = False
+    if roll_question_2 == "Yes":
+        player_2_dice = player_2_dice + random.randint(1,6)
+        print "Your total is now: " + str(player_2_dice)
+        if player_2_dice==21:
+            print "The game is over"
+            player_2_rolling = False
+        if player_2_dice>21:
+            print "Player two loses"
+            player_1_rolling = False
+            player_2_rolling = False
+            player_2_win = False
+            
+while player_1_dice<21 and player_2_dice <21      :
+    if player_1_rolling == False and player_2_rolling == False:
+        if player_1_dice>player_2_dice:
+            print "Player 1 Wins"
+    if player_2_dice>player_1_dice:
+        print "Player 2 Wins"    
+
+if player_2_win == False and player_2_win == False:
+    print "Y'all both lost."
+        
+if player_2_win == True and player_2_win == True:
+        print "Yall both won!"
