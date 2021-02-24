@@ -1,0 +1,46 @@
+
+import random
+turns = 0
+
+def draw_card(card_type):
+    diamond_set = [2,3,4,5,6,7,8,9,10]
+    club_set = [2,3,4,5,6,7,8,9,10]
+    spade_set = [2,3,4,5,6,7,8,9,10]
+    heart_set = [2,3,4,5,6,7,8,9,10]
+    
+    if card_type <= 9 and card_type >= 2:
+        for i in range (len(diamond_set)):
+            if i==card_type:
+                diamond_set = diamond_set.remove(i)
+        print ("Diamonds: " + str(card_type))
+        
+    if card_type <= 18 and card_type >= 10:
+        card_type = card_type - 8
+        for i in range (len(club_set)):
+            if i==card_type:
+               club_set = club_set.remove(i)
+        print ("Clubs: " + str(card_type))
+        
+    if card_type <= 26 and card_type >= 19:
+        card_type = card_type - 16
+        for i in range (len(spade_set)):
+            if i==card_type:
+                spade_set = spade_set.remove(i)
+        print ("Spades: " + str(card_type))
+        
+    if card_type <= 34 and card_type >= 27:
+        card_type = card_type - 24
+        for i in range (len(heart_set)):
+            if i==card_type:
+                heart_set = heart_set.remove(i)
+        print ("Hearts: " + str(card_type))
+
+
+while turns<=26:
+    draw = input("Draw?: ")
+    if draw == "y":
+        for i in range(2):
+            card_type = random.randint(2,35)
+            draw_card(card_type)
+        turns = turns+1
+
